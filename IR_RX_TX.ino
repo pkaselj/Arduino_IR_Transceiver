@@ -32,26 +32,22 @@ void setup() {
 
 }
 
+
 // Buffer for commands read from serial port
 static String sInput;
 
 void loop() {
     if(Serial.available())
     {
-
       sInput = Serial.readString();
       sInput.trim();
       
-      Serial.print("Read: '");
-      Serial.print(sInput);
-      Serial.println("'");
+      Serial.println("Read: '" + sInput + "'");
 
       ircommand_t const * pCommand = get_command(sInput.c_str());
       if(NULL == pCommand)
       {
-        Serial.print("Invalid command: '");
-        Serial.print(sInput);
-        Serial.println("'");
+        Serial.println("Invalid command: '" + sInput + "'");
       }
       else
       {
@@ -62,5 +58,5 @@ void loop() {
 
     }
 
-    delay(MAIN_LOOP_WAIT_TIME_MS);  // delay must be greater than 5 ms (RECORD_GAP_MICROS), otherwise the receiver sees it as one long signal
+    delay(MAIN_LOOP_WAIT_TIME_MS);
 }
