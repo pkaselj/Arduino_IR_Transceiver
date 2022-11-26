@@ -10,7 +10,6 @@
 // IR diode pin
 #define IR_SEND_PIN 5
 // IR receiver pin
-// NOTE: ONLY PIN 2 SUPPORTED FOR NOW
 #define IR_RECEIVE_PIN 2
 
 // Time between loop() calls (Loop sleeps after every iteration)

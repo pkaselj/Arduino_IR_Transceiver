@@ -3,14 +3,16 @@
 
 #include <stdint.h>
 
-// Select which set of commands to define
-// Possible settings:
-// COMMANDS_TV - commands for TV
-// COMMANDS_PURIFIER - commands for air purifier
-#define COMMANDS_PURIFIER
+// Select which set of commands to define:
+// -- Commands for a TV
+// #define COMMANDS_TV
+// -- Commands for an air purifier
+// #define COMMANDS_PURIFIER
+// -- Commands for a LED strip from AliExpress
+#define COMMANDS_LED
 
 // Define addr_t type for NEC addresses
-#ifdef COMMANDS_TV
+#if defined(COMMANDS_TV) || defined(COMMANDS_LED)
   // TV uses 16-bit addresses
   typedef uint16_t addr_t;
 #else
