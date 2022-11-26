@@ -94,12 +94,12 @@ void task_ir_send_handler()
       sInput = Serial.readString();
       sInput.trim();
       
-      Serial.println(F("Read: '") + sInput + F("'"));
+      Serial.println("Read: '" + sInput + "'");
 
       ircommand_t const * pCommand = get_command(sInput.c_str());
       if(NULL == pCommand)
       {
-        Serial.println(F("Invalid command: '") + sInput + F("'"));
+        Serial.println("Invalid command: '" + sInput + "'");
       }
       else
       {
