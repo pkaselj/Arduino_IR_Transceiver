@@ -94,16 +94,16 @@ void task_ir_send_handler()
       sInput = Serial.readString();
       sInput.trim();
       
-      Serial.println("Read: '" + sInput + "'");
+      Serial.println(F("Read: '") + sInput + F("'"));
 
       ircommand_t const * pCommand = get_command(sInput.c_str());
       if(NULL == pCommand)
       {
-        Serial.println("Invalid command: '" + sInput + "'");
+        Serial.println(F("Invalid command: '") + sInput + F("'"));
       }
       else
       {
-        Serial.print("Matched command: ");
+        Serial.print(F("Matched command: "));
         Serial.println(pCommand->szName);
         IrSender.sendNEC(pCommand->iAddress, pCommand->iCommand, 0);
       }
