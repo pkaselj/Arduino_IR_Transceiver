@@ -1,6 +1,6 @@
 #include "TxCommands.hpp"
 
-#include <Arduino.h>
+#include <string.h>
 
 // PRIVATE list of all commands
 static const ircommand_t lstCommands[] =
